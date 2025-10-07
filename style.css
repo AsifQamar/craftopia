@@ -1,20 +1,10 @@
-/* For the glowing border animation */
-@property --angle {
-  syntax: '<angle>';
-  initial-value: 0deg;
-  inherits: false;
-}
-
 :root {
-    --primary-color: #6a11cb;
-    --secondary-color: #2575fc;
-    --background-color: #0d0c1d;
-    --card-color-glass: rgba(255, 255, 255, 0.05);
-    --text-color: #c3c1d5;
+    --primary-color: #4A90E2;
+    --secondary-color: #F5A623;
+    --background-color: #12121e;
+    --card-color: #1e1e2f;
+    --text-color: #e0e0e0;
     --heading-color: #ffffff;
-    --border-glow: #8e44ad;
-
-    --angle: 0deg; /* Initial angle for animation */
 }
 
 * {
@@ -24,25 +14,10 @@
 }
 
 body {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Poppins', sans-serif;
     background-color: var(--background-color);
     color: var(--text-color);
-    line-height: 1.7;
-    overflow-x: hidden;
-}
-
-.background-aurora {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: 
-        radial-gradient(at 20% 20%, hsla(271, 91%, 63%, 0.2) 0px, transparent 50%),
-        radial-gradient(at 80% 20%, hsla(217, 91%, 63%, 0.2) 0px, transparent 50%),
-        radial-gradient(at 20% 80%, hsla(300, 91%, 63%, 0.2) 0px, transparent 50%),
-        radial-gradient(at 80% 80%, hsla(240, 91%, 63%, 0.2) 0px, transparent 50%);
-    z-index: -1;
+    line-height: 1.6;
 }
 
 .container {
@@ -51,16 +26,14 @@ body {
     padding: 0 20px;
 }
 
-/* --- Header --- */
 header {
-    background: rgba(13, 12, 29, 0.5);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    background: rgba(18, 18, 30, 0.8);
+    backdrop-filter: blur(10px);
     padding: 1rem 0;
     position: sticky;
     top: 0;
     z-index: 100;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid #333;
 }
 
 header .container {
@@ -72,17 +45,16 @@ header .container {
 .logo {
     font-size: 1.8rem;
     color: var(--heading-color);
-    font-weight: 800;
+    font-weight: 700;
 }
 
 .organizer {
     font-size: 0.9rem;
-    color: var(--text-color);
+    color: var(--primary-color);
 }
 
-/* --- Hero Section --- */
 #hero {
-    padding: 80px 0;
+    padding: 60px 0;
     text-align: center;
 }
 
@@ -90,7 +62,7 @@ header .container {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 50px;
+    gap: 40px;
 }
 
 .hero-text {
@@ -99,41 +71,37 @@ header .container {
 }
 
 .hero-text h2 {
-    font-size: 3.5rem;
+    font-size: 2.8rem;
     color: var(--heading-color);
     margin-bottom: 1rem;
     line-height: 1.2;
-    font-weight: 800;
-}
-
-.gradient-text {
-    background: linear-gradient(90deg, var(--secondary-color), var(--primary-color));
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
 }
 
 .hero-text .tagline {
-    font-size: 1.1rem;
-    max-width: 500px;
+    font-size: 1.2rem;
+    font-style: italic;
+    color: var(--secondary-color);
+    margin-bottom: 1rem;
+}
+
+.hero-text p {
     margin-bottom: 2rem;
 }
 
 .cta-button {
     display: inline-block;
-    background: linear-gradient(90deg, var(--secondary-color), var(--primary-color));
+    background: linear-gradient(90deg, var(--primary-color), #7e48c7);
     color: #fff;
-    padding: 14px 35px;
-    border-radius: 10px;
+    padding: 12px 30px;
+    border-radius: 50px;
     text-decoration: none;
     font-weight: 600;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border: none;
 }
 
 .cta-button:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 25px rgba(37, 117, 252, 0.5);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(74, 144, 226, 0.3);
 }
 
 .hero-image {
@@ -144,125 +112,91 @@ header .container {
     max-width: 100%;
     height: auto;
     border-radius: 20px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
-    transform: perspective(1000px) rotateY(-5deg);
-    transition: transform 0.4s ease;
-}
-.hero-image img:hover {
-    transform: perspective(1000px) rotateY(0deg);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
 }
 
-/* --- Schedule Section --- */
 #schedule {
-    padding: 80px 0;
+    padding: 60px 0;
+    background-color: var(--card-color);
 }
 
 #schedule h2 {
     text-align: center;
-    font-size: 2.8rem;
-    margin-bottom: 50px;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
     color: var(--heading-color);
-    font-weight: 800;
 }
 
 .rounds-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    flex-wrap: wrap;
 }
 
 .round-card {
-    position: relative;
-    border-radius: 15px;
-    background: var(--card-color-glass);
-    padding: 2px; /* This is for the border */
-    transition: transform 0.3s ease;
-}
-
-.round-card::before,
-.round-card::after {
-    content: '';
-    position: absolute;
-    inset: -2px;
-    z-index: -1;
-    background: conic-gradient(
-      from var(--angle),
-      transparent 50%,
-      var(--border-glow)
-    );
-    border-radius: inherit;
-    animation: spin 4s linear infinite;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-.round-card:hover::before,
-.round-card:hover::after {
-    opacity: 1;
-}
-
-.round-card .card-content {
-    background: #161526;
-    border-radius: 13px; /* Slightly smaller than parent for border to show */
+    background: var(--background-color);
     padding: 30px;
+    border-radius: 15px;
     text-align: center;
-    height: 100%;
+    width: 30%;
+    min-width: 250px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    border-left: 5px solid var(--primary-color);
 }
 
-@keyframes spin {
-  to {
-    --angle: 360deg;
-  }
-}
-
-.card-content h3 {
+.round-card h3 {
     font-size: 1.5rem;
-    color: var(--heading-color);
+    color: var(--primary-color);
     margin-bottom: 10px;
 }
-.card-content .date {
+
+.round-card .date {
     font-size: 1.8rem;
     font-weight: 700;
-    color: var(--secondary-color);
+    color: var(--heading-color);
     margin-bottom: 15px;
 }
-.card-content .mode {
+
+.round-card .mode {
     padding: 5px 15px;
     border-radius: 20px;
     font-size: 0.9rem;
     font-weight: 600;
     color: #fff;
-    display: inline-block;
 }
-.mode.online { background-color: rgba(37, 117, 252, 0.2); border: 1px solid var(--secondary-color); }
-.mode.offline { background-color: rgba(231, 76, 60, 0.2); border: 1px solid #e74c3c; }
 
+.mode.online { background-color: #3498db; }
+.mode.offline { background-color: #e74c3c; }
 
-/* --- Footer --- */
 footer {
     text-align: center;
     padding: 40px 0;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    margin-top: 60px;
+    margin-top: 40px;
 }
-footer h3 { font-size: 1.5rem; color: var(--heading-color); }
-footer .socials { margin: 20px 0; }
+
+footer .socials {
+    margin: 20px 0;
+}
+
 footer .socials a {
     color: var(--text-color);
     font-size: 1.5rem;
     margin: 0 15px;
-    transition: color 0.3s ease, transform 0.3s ease;
-}
-footer .socials a:hover {
-    color: var(--secondary-color);
-    transform: translateY(-3px);
+    transition: color 0.3s ease;
 }
 
-/* --- Fade-in Animation (same as before) --- */
+footer .socials a:hover {
+    color: var(--primary-color);
+}
+
+/* --- Fade-in Animation --- */
 .fade-in {
     opacity: 0;
     transform: translateY(30px);
     transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
+
 .fade-in.visible {
     opacity: 1;
     transform: translateY(0);
@@ -271,21 +205,153 @@ footer .socials a:hover {
 /* --- Responsive Design --- */
 @media (max-width: 768px) {
     .hero-content {
-        flex-direction: column-reverse;
+        flex-direction: column;
     }
     .hero-text {
         text-align: center;
-        margin-top: 30px;
+        margin-bottom: 30px;
     }
     .hero-text h2 {
-        font-size: 2.5rem;
+        font-size: 2.2rem;
     }
-    .hero-text .tagline {
-        margin-left: auto;
-        margin-right: auto;
+    .round-card {
+        width: 100%;
+        margin-bottom: 20px;
     }
     header .container {
         flex-direction: column;
         gap: 10px;
+    }
+}
+/* --- Rules & Guidelines Section --- */
+#rules {
+    padding: 80px 0;
+}
+
+#rules h2 {
+    text-align: center;
+    font-size: 2.8rem;
+    margin-bottom: 50px;
+    color: var(--heading-color);
+    font-weight: 800;
+}
+
+.rules-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.rule-block {
+    background: var(--card-color-glass);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 30px;
+    backdrop-filter: blur(10px);
+}
+
+.rule-block.full-width {
+    grid-column: 1 / -1; /* Makes this block span the full width */
+}
+
+.rule-block h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--heading-color);
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.rule-block ul {
+    list-style: none;
+    padding-left: 5px;
+}
+
+.rule-block ul li {
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 12px;
+}
+
+.rule-block ul li::before {
+    content: '✦';
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--secondary-color);
+    font-weight: bold;
+}
+
+.round-details-container {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.round-detail {
+    flex: 1;
+    min-width: 250px;
+    background: rgba(13, 12, 29, 0.7);
+    padding: 20px;
+    border-radius: 10px;
+    border-left: 3px solid var(--secondary-color);
+}
+
+.round-detail h4 {
+    font-size: 1.1rem;
+    color: var(--heading-color);
+    margin-bottom: 10px;
+}
+
+.round-detail p {
+    font-size: 0.95rem;
+    margin-bottom: 15px;
+}
+
+.time-limit {
+    display: inline-block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 20px;
+    background-color: rgba(37, 117, 252, 0.15);
+    color: var(--secondary-color);
+}
+
+/* Responsive adjustments for the new section */
+@media (max-width: 768px) {
+    .rules-grid {
+        grid-template-columns: 1fr;
+    }
+}
+/* --- Header Logo Styling --- */
+.header-logo {
+    height: 50px; /* Adjust size as needed */
+    width: auto;
+}
+
+/* Make sure the header container aligns items properly */
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Responsive adjustment for the header on mobile */
+@media (max-width: 768px) {
+    header .container {
+        flex-direction: row; /* Keep it as a row */
+        justify-content: space-between; /* Keep space between logo and text */
+        align-items: center;
+        gap: 15px;
+    }
+    
+    .logo {
+        font-size: 1.5rem; /* Slightly smaller title on mobile */
+    }
+
+    .header-logo {
+        height: 40px; /* Slightly smaller logo on mobile */
     }
 }
