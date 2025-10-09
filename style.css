@@ -355,3 +355,11 @@ header .container {
         height: 40px; /* Slightly smaller logo on mobile */
     }
 }
+/* --- Registration Fee Text Styling --- */
+.registration-fee {
+    margin-top: 15px;
+    font-size: 0.9rem;
+    color: var(--text-color);
+    opacity: 0.8;
+    line-height: 1.5; /* Add this for better spacing */
+}
